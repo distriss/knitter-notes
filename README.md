@@ -9,7 +9,7 @@ You can create an account and profile, create patterns, keep note on materials u
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Express, Tailwind, React
+**Tech used:** HTML, CSS, JavaScript, Express, EJS, Tailwind, React
 
 CRUD app, authentication, API
 
