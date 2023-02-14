@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session"); 
-const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
@@ -45,8 +45,11 @@ app.use(session({
     secret: "fruitbat piglet",
     resave: false,
     saveUnitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-}));
+    store: MongoStore.create({ 
+        mongoUrl: process.env.DB_STRING 
+        }),
+    })
+);
 
 // Passport middleware
 app.use(passport.initialize());
