@@ -22,7 +22,8 @@
     "mongo-store": "^0.0.2",
     "mongodb": "^4.13.0",
     "mongoose": "^6.9.0",
-    "passport": "^0.6.0"
+    "passport": "^0.6.0",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
