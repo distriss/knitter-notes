@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Body Parsing
-app.use(express.urlencoded({ exptended: true })); // enables parsing of form entries
+app.use(express.urlencoded({ extended: true })); // enables parsing of form entries
 app.use(express.json()); 
 
 // Logging
@@ -42,13 +42,14 @@ app.use(methodOverride("_method")); // if requests have _method query parameter 
 
 // Setup Sessions - stored in MongoDB
 app.use(session({
-    secret: "fruitbat piglet",
+    secret: 'keyboard cat',
     resave: false,
-    saveUnitialized: false,
-    store: MongoStore.create({ 
-        mongoUrl: process.env.DB_STRING 
-        }),
-    })
+    saveUninitialized: false, // don't create session until something stored
+    resave: false, //don't save session if unmodified
+    store: MongoStore.create({
+        mongoUrl: process.env.DB_STRING,      
+    }),
+  })
 );
 
 // Passport middleware
@@ -62,9 +63,9 @@ app.use(flash());
 // Setup Routes for which the Server is listening
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
-app.use("/comment", commentRoutes);
-app.use("/pattern", patternRoutes);
-app.use("/counter", counterRoutes);
+// app.use("/comment", commentRoutes);
+// app.use("/pattern", patternRoutes);
+// app.use("/counter", counterRoutes);
 
 // Server Running
 app.listen(process.env.PORT, () => {
