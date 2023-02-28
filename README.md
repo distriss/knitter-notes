@@ -1,5 +1,5 @@
 # Knitter Notes
-Web Appplication to help knitters to create, track and share patterns.
+Web Application to help knitters to create, track and share patterns.
 You can create an account and profile, create patterns, keep note on materials used, count each section of patterns by creating counters, save progress, like and comment on other users patterns.
 
 
