@@ -35,8 +35,14 @@ const PatternSchema = new mongoose.Schema({
         type: String,
         default: 'one size'
     },
+    post: { // which post the pattern belongs to
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+    },    
     createdAt: {
         type: Date,
         default: Date.now,
     }
 })
+
+module.exports = mongoose.model("Pattern", PatternSchema);

@@ -26,8 +26,8 @@ module.exports = {
         try { 
           const post = await Post.findById(req.params.id);
           const comments = await Comment.find({post: req.params.id }).sort({ createdAt: "desc" }).lean();
-          const pattern = await Pattern.find({post: req.params.id }).lean();
-          const counters = await Counter.find({post: req.params.id }).lean();
+          // const pattern = await Pattern.find({post: req.params.id }).lean();
+          // const counters = await Counter.find({post: req.params.id }).lean();
           const user = await User.find({ user: req.params.user })
           res.render("post.ejs", { post: post, user: req.user, comments: comments, pattern: pattern, counters: counters, users: user });
         } catch (err) {
