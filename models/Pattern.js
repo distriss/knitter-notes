@@ -8,7 +8,11 @@ const PatternSchema = new mongoose.Schema({
     post: { // which post the pattern belongs to
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
-    },    
+    },
+    user: { // user id that created pattern
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: "User"
+    },   
     createdAt: {
         type: Date,
         default: Date.now,
