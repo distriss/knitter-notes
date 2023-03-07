@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const PatternSchema = new mongoose.Schema({
-    patternSectionTitle: {
+    patternTitle: {
         type: String,
         required: true,
     },
