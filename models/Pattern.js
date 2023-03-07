@@ -1,9 +1,20 @@
 const mongoose = require("mongoose");
 
-const PatternSchema = new mongoose.Schema({   
+const PatternSchema = new mongoose.Schema({
+    patternSectionTitle: {
+        type: String,
+        required: true,
+    },
     patternSection: {
         type: String,
         required: true,        
+    },
+    image: {
+        type: String,
+    },
+    cloudinaryId: {
+        type: String,
+        require: true,
     },
     post: { // which post the pattern belongs to
         type: mongoose.Schema.Types.ObjectId,

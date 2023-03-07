@@ -19,4 +19,4 @@ const CounterSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Pattern", PatternSchema);
+module.exports = mongoose.model("Counter", CounterSchema);
