@@ -51,7 +51,7 @@ const PostSchema = new mongoose.Schema({
     yardage: {
         type: String,
     },
-    sizes: {
+    size: {
         type: String,
         default: 'one size'
     },

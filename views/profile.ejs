@@ -12,16 +12,50 @@
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <input type="text" class="form-control" id="title" name="title" value="Name of pattern.">
               </div>
               <div class="mb-3">
                 <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+                <textarea class="form-control" id="caption" name="caption" value="Short description of pattern."></textarea>
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
+
+              <div class="mb-3">
+                <label for="craft" class="form-label">Craft</label>
+                <input type="text" class="form-control" id="craft" name="craft" value="Knittin, Crochet...">
+              </div>
+              <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <input type="text" class="form-control" id="category" name="category" value="Socks, Sweater, Mittens...">
+              </div>
+              <div class="mb-3">
+                <label for="yarn" class="form-label">Yarn</label>
+                <input type="text" class="form-control" id="yarn" name="yarn" value="Name of Yarn">
+              </div>
+              <div class="mb-3">
+                <label for="needleSize" class="form-label">Needle Size</label>
+                <input type="text" class="form-control" id="needleSize" name="needleSize" value="5mm/UK6/US8">
+              </div>
+              <div class="mb-3">
+                <label for="yarnWeight" class="form-label">Yarn Weight</label>
+                <input type="text" class="form-control" id="yarnWeight" name="yarnWeight" value="DK, Aran...">
+              </div>
+              <div class="mb-3">
+                <label for="gauge" class="form-label">Gauge</label>
+                <input type="text" class="form-control" id="gauge" name="gauge" value="eg. 15sts 12rows">
+              </div>
+              <div class="mb-3">
+                <label for="yardage" class="form-label">Yardage</label>
+                <input type="text" class="form-control" id="yardage" name="yardage" value="Metric or yards">
+              </div>
+              <div class="mb-3">
+                <label for="size" cyardage"form-label">Size</label>
+                <input type="text" class="form-control" id="size" name="size" value="S, M, L, XL...">
+              </div>
+
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
