@@ -43,9 +43,18 @@ module.exports = {
             title: req.body.title,
             image: result.secure_url,
             cloudinaryId: result.public_id,
-            caption: req.body.caption,
+            description: req.body.description,
             likes: 0,
             user: req.user.id,
+            origin: req.body.origin,
+            craft: req.body.craft,
+            category: req.body.category,
+            yarn: req.body.yarn,
+            yarnWeight: req.body.yarnWeight,
+            gauge: req.body.gauge,
+            needleSize: req.body.needleSize,
+            yardage: req.body.yardage,
+            size: req.body.size,
           });
           console.log("Post has been added!");
           res.redirect("/profile");
