@@ -59,14 +59,32 @@
         </div>
       </div>
     </div>
-    <div class="col-3 mt-5">
-        <ul>
-            <!-- pattern sections-->
-            <!-- if user_id === counter user_id, show counters-->
-          </ul>      
-    </div>
 
-    
+    <div class="col-6">
+      <!-- Post Details -->
+      <div class="mb-3">
+        <h3>Details</h3>
+
+      </div>
+
+      <!-- Pattern -->
+      <div class="mb-3">
+        <h3>Pattern</h3>
+        <ul>
+           <!-- pattern sections-->
+        </ul>
+      </div>
+
+         <!-- Counters -->
+      <%if(post.user == user.id){ %> <!-- later if project == active, not bound to post.user -->
+        <div class="mb-3">
+          <h4>Counters</h4>
+
+        </div>
+      <%}%>
+      
+    </div>
+        
   </div>
 </div>
 
