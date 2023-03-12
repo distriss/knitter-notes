@@ -29,7 +29,8 @@ module.exports = {
           const pattern = await Pattern.find({post: req.params.id }).lean();
           const counters = await Counter.find({post: req.params.id }).lean();
           const user = await User.find({ user: req.params.user })
-          res.render("post.ejs", { post: post, user: req.user, comments: comments, pattern: pattern, counters: counters, users: user });
+          const author = await User.findById(post.user)
+          res.render("post.ejs", { post: post, user: req.user, comments: comments, pattern: pattern, counters: counters, users: user, author: author.userName});
         } catch (err) {
           console.log(err);
         }
