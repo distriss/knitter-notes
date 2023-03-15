@@ -63,30 +63,152 @@ module.exports = {
           console.log(err);
         }
       },
-      editPostDetails: async (req, res) => {
+      // edit Details - unrefined
+      editCraft: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
             {
               $set: {
-                craft: req.body.craft,          
-                yarnWeight: req.body.yarnWeight,
-                needleSize: req.body.needleSize,
-                gauge: req.body.gauge,
-                yardage: req.body.yardage,
-                yarn: req.body.yarn,
-                category: req.body.category,
-                size: req.body.size,
-                origin: req.body.origin,
+                craft: req.body.craft,               
               }
             });
-            console.log("Details have been updated!");
+            console.log("Craft has been updated!");
             res.redirect(`/post/${req.params.id}`)
         }
         catch (err) {
           console.log(err);
         }
       },
+      editYarnWeight: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                yarnWeight: req.body.yarnWeight,               
+              }
+            });
+            console.log("Yarn Weight has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editNeedleSize: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                needleSize: req.body.needleSize,               
+              }
+            });
+            console.log("Needle Size has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editGauge: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                gauge: req.body.gauge,               
+              }
+            });
+            console.log("Gauge has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editYardage: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                yardage: req.body.yardage,               
+              }
+            });
+            console.log("Yardage has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editYarn: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                yarn: req.body.yarn,               
+              }
+            });
+            console.log("Yarn has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editCategory: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                category: req.body.category,               
+              }
+            });
+            console.log("Category has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editSize: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                size: req.body.size,               
+              }
+            });
+            console.log("Size has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editOrigin: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                origin: req.body.origin,
+              }
+            });
+            console.log("Origin has been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+
       likePost: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
