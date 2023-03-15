@@ -66,11 +66,11 @@
         <h3>Details</h3>
         <span>by <%= postAuthor %></span>
 
-        <table class="table">
+        <table>
           <tr>
             <td>craft</td>
             <td><%= post.craft %></td>
-            <td>
+            <!-- <td>
               <%if(post.user == user.id){ %>
               <form
                 action="/post/editCraft/<%= post.id %>?_method=UPDATE"
@@ -81,50 +81,133 @@
                 <button class="btn btn-primary fa fa-edit" type="submit"></button>
               </form>
               <%}%>
-            </td>
+            </td>-->
           </tr>          
           <tr>
             <td>Yarn Weight</td>
             <td><%= post.yarnWeight %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editYarnWeight/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>
           <tr>
             <td>Needle Size</td>
             <td><%= post.needleSize %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editNeedleSize/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>
           <tr>
             <td>Gauge</td>
             <td><%= post.gauge %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editGauge/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>
           <tr>
             <td>Yardage</td>
             <td><%= post.yardage %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editYardage/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>
           <tr>
             <td>Yarn</td>
             <td><%= post.yarn %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editYarn/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>          
           <tr>
             <td>Category</td>
             <td><%= post.category %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editCategory/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td>-->
           </tr>
           <tr>
             <td>Size</td>
             <td><%= post.size %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editSize/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td> -->
           </tr>
           <tr>
             <td>Origin</td>
             <td><%= post.origin %></td>
+            <!-- <td>
+              <%if(post.user == user.id){ %>
+              <form
+                action="/post/editOrigin/<%= post.id %>?_method=UPDATE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-edit" type="submit"></button>
+              </form>
+              <%}%>
+            </td> -->
           </tr>
           <tr>
             <td>Created At</td>
             <td><%= post.createdAt %></td>
           </tr>
         </table>
-
-        <!-- edit post -->
-        <%if(post.user == user.id){ %>
-           <a class="btn btn-primary fa fa-edit" href="/editPost"></a>          
-        <%}%>     
       </div>
 
       <!-- Pattern -->

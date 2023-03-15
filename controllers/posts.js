@@ -63,8 +63,23 @@ module.exports = {
           console.log(err);
         }
       },
-      // edit Details - unrefined
-      editCraft: async (req, res) => {
+      // edit Details - unrefined -- continue this
+      getEditPost: async (req, res) => {
+        try {
+          const post = await Post.findById(req.params.id);
+          const comments = await Comment.find({post: req.params.id }).sort({ createdAt: "desc" }).lean();
+          const pattern = await Pattern.find({post: req.params.id }).lean();
+          const counters = await Counter.find({post: req.params.id }).lean();
+          const user = await User.find({ user: req.params.user })
+          const postAuthor = user
+          
+          res.render("./editPost.ejs", { post: post, user: req.user, comments: comments, pattern: pattern, counters: counters, users: user, postAuthor: postAuthor.userName});
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
+      editPostCraft: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -80,7 +95,8 @@ module.exports = {
           console.log(err);
         }
       },
-      editYarnWeight: async (req, res) => {
+      /*
+      editPostYarnWeight: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -96,7 +112,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editNeedleSize: async (req, res) => {
+      editPostNeedleSize: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -112,7 +128,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editGauge: async (req, res) => {
+      editPostGauge: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -128,7 +144,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editYardage: async (req, res) => {
+      editPostYardage: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -144,7 +160,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editYarn: async (req, res) => {
+      editPostYarn: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -160,7 +176,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editCategory: async (req, res) => {
+      editPostCategory: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -176,7 +192,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editSize: async (req, res) => {
+      editPostSize: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -192,7 +208,7 @@ module.exports = {
           console.log(err);
         }
       },
-      editOrigin: async (req, res) => {
+      editPostOrigin: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
             { _id: req.params.id },
@@ -208,7 +224,7 @@ module.exports = {
           console.log(err);
         }
       },
-
+      */
       likePost: async (req, res) => {
         try {
           await Post.findOneAndUpdate(

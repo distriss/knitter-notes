@@ -9,16 +9,16 @@ router.get("/:id", ensureAuth, postsController.getPost);
 
 router.post("/createPost", upload.single("file"), postsController.createPost);
 
-// edit Details Routes
-router.put("/editCraft/", postsController.editPostCraft);
-router.put("/editYarnWeight/", postsController.editYarnWeight);
-router.put("/editNeedleSize/", postsController.editNeedleSize);
-router.put("/editGauge/", postsController.editGauge);
-router.put("/editYardage/", postsController.editYardage);
-router.put("/editYarn/", postsController.editYarn);
-router.put("/editCategory/", postsController.editCategory);
-router.put("/editSize/", postsController.editSize);
-router.put("/editOrigin/", postsController.editOrigin);
+// edit details route
+// router.put("/editPostCraft/", postsController.editPostCraft);
+/* router.put("/editPostYarnWeight/", postsController.editPostYarnWeight);
+router.put("/editPostNeedleSize/", postsController.editPostNeedleSize);
+router.put("/editPostGauge/", postsController.editPostGauge);
+router.put("/editPostYardage/", postsController.editPostYardage);
+router.put("/editPostYarn/", postsController.editPostYarn);
+router.put("/editPostCategory/", postsController.editPostCategory);
+router.put("/editPostSize/", postsController.editPostSize);
+router.put("/editPostOrigin/", postsController.editPostOrigin); */
 
 router.put("/likePost/:id", postsController.likePost);
 
