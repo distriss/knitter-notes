@@ -63,6 +63,30 @@ module.exports = {
           console.log(err);
         }
       },
+      editPostDetails: async (req, res) => {
+        try {
+          await Post.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                craft: req.body.craft,          
+                yarnWeight: req.body.yarnWeight,
+                needleSize: req.body.needleSize,
+                gauge: req.body.gauge,
+                yardage: req.body.yardage,
+                yarn: req.body.yarn,
+                category: req.body.category,
+                size: req.body.size,
+                origin: req.body.origin,
+              }
+            });
+            console.log("Details have been updated!");
+            res.redirect(`/post/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
       likePost: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
