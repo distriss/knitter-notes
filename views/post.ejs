@@ -31,7 +31,7 @@
           <h2>Add a comment</h2>
           <form action="/comment/createComment/<%=post._id%>" method="POST">
             <div class="mb-3">
-                <label for="title" class="form-label">Comment</label>
+                <label for="Comment" class="form-label">Comment</label>
                 <input type="text" class="form-control" id="comment" name="comment">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -70,18 +70,6 @@
           <tr>
             <td>craft</td>
             <td><%= post.craft %></td>
-            <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editCraft/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <input type="text" class="form-control" id="Craft" name="craft" value="<%= post.craft %>">
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>
           </tr>          
           <tr>
             <td>Yarn Weight</td>
@@ -121,7 +109,7 @@
           </tr>
         </table>
 
-        <!-- edit post -->
+        <!-- GET edit post -->
         <%if(post.user == user.id){ %>
            <a class="btn btn-primary fa fa-edit" href="/post/editPost/<%= post.id %>"></a>          
         <%}%>     

@@ -224,19 +224,38 @@ module.exports = {
         }
       },
       */
-      likePost: async (req, res) => {
-        try {
-          await Post.findOneAndUpdate(
-            { _id: req.params.id },
-            {
-              $inc: { likes: 1 },
+    editTitleAndDesc: async (req, res) => {
+      try {
+        await Post.findOneAndUpdate(
+          {_id: req.params.id },
+          {
+            $set: {
+              title: req.body.editTitle,
+              description: req.body.editDescription,
             }
-          );
-          console.log("Likes +1");
-          res.redirect(`/post/${req.params.id}`);
-        } catch (err) {
-          console.log(err);
-        }
+          },
+          {new: true}
+        );
+        console.log("Title and Description have been updated!");
+        res.redirect(`/post/editPost/${req.params.id}`)
+      }
+      catch (err) {
+        console.log(err);
+      }
+    },
+    likePost: async (req, res) => {
+      try {
+        await Post.findOneAndUpdate(
+          { _id: req.params.id },
+          {
+            $inc: { likes: 1 },
+          }
+        );
+        console.log("Likes +1");
+        res.redirect(`/post/${req.params.id}`);
+      } catch (err) {
+        console.log(err);
+      }
     },
     deletePost: async (req, res) => {
       try {
