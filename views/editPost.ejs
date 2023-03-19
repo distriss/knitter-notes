@@ -3,54 +3,13 @@
   <div class="row mt-5">
     <div class="col-6">
       <div class="mb-3">
-        <!-- Edit Title and Description-->
-        <form 
-          action="/post/editPost/editTitleAndDesc/<%= post._id %>?_method=PUT" 
-          method="POST"
-          >
-          <label for="editTitle" class="form-label">Title</label>
-          <input type="text" class="form-control" id="editTitle" name="editTitle" value="<%=post.title %>">
-          <label for="editDescription" class="form-label">Description</label>
-          <input type="text" class="form-control" id="editDescription" name="editDescription" value="<%=post.description%>">
-          <button class="btn btn-primary fa fa-save" type="submit"></button>
-
-        </form>
-
+        <h2><%= post.title %></h2>
+        <p><%= post.description %></p>
         <!-- Edit Image -->
         <img class="img-fluid" src="<%= post.image%>" />
-
-        <div class="row justify-content-between">
-            <form
-              class="col-1"
-              action="/post/likePost/<%= post.id %>?_method=PUT"
-              method="POST"
-            >
-              <button class="btn btn-primary fa fa-heart" type="submit"></button>
-            </form>
-            <h3 class="col-3">Likes: <%= post.likes %></h3>
-          
-          <%if(post.user == user.id){ %>
-            <form
-              action="/post/deletePost/<%= post.id %>?_method=DELETE"
-              method="POST"
-              class="col-1"
-            >
-              <button class="btn btn-primary fa fa-trash" type="submit"></button>
-            </form>
-            <%}%>
+        <div class="row justify-content-end">
+          <h3 class="col-3">Likes: <%= post.likes %></h3>
         </div>
-
-        <div class="mt-5">
-          <h2>Add a comment</h2>
-          <form action="/comment/createComment/<%=post._id%>" method="POST">
-            <div class="mb-3">
-                <label for="title" class="form-label">Comment</label>
-                <input type="text" class="form-control" id="comment" name="comment">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-    
         <ul>
           <% for(let i=0; i<comments.length; i++) {%>
             <li class="col-6 justify-content-between mt-5">
@@ -66,182 +25,94 @@
             </li>
           <% } %>
         </ul>
-        <div class="col-6 mt-5">
-          <a class="btn btn-primary" href="/profile">Return to Profile</a>
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+            <div class="col-6 mt-5">
+              <a class="btn btn-primary" href="/profile">Return to Profile</a>
+              <a class="btn btn-primary" href="/feed">Return to Feed</a>
+            </div>
+          </div>
         </div>
-      </div>
+    
+        <div class="col-6">
+          <div class="row justify-content-end">          
+            <%if(post.user == user.id){ %>
+              <form
+              class="col-1"
+                action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                method="POST"
+                class="col-1"
+              >
+                <button class="btn btn-primary fa fa-trash" type="submit"></button>
+              </form>
+              <%}%>
+          </div>
+          <!-- Post Details -->
+          <div class="mb-3">
+            <h3>Details</h3>
+            <span>by <%= postAuthor %></span>
+
+            <!-- Edit Post Details-->            
+            <form 
+            action="/post/editPost/editPostDetails/<%= post._id %>?_method=PUT" 
+            method="POST"
+            >
+            <table>
+              <tr>
+                <td><label for="editTitle" class="form-label">Title</label></td>
+                <td><input type="text" class="form-control" id="editTitle" name="editTitle" value="<%=post.title %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editDescription" class="form-label">Description</label></td>
+                <td><textarea class="form-control" id="editDescription" name="editDescription"><%=post.description%></textarea></td>
+              </tr>
+              <tr>
+                <td><label for="editCraft" class="form-label">Craft</label></td>
+                <td><input type="text" class="form-control" id="editCraft" name="editCraft" value="<%= post.craft %>"></td>
+              </tr>          
+              <tr>
+                <td><label for="editYarnWeight" class="form-label">Yarn Weight</label></td>
+                <td><input type="text" class="form-control" id="editYarnWeight" name="editYarnWeight" value="<%= post.yarnWeight %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editNeedleSize" class="form-label">Needle Size</label></td>
+                <td><input type="text" class="form-control" id="editNeedleSize" name="editNeedleSize" value="<%= post.needleSize %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editGauge" class="form-label">Gauge</label></td>
+                <td><input type="text" class="form-control" id="editGauge" name="editGauge" value="<%= post.gauge %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editYardage" class="form-label">Yardage</label></td>
+                <td><input type="text" class="form-control" id="editYardage" name="editYardage" value="<%= post.yardage %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editYarn" class="form-label">Yarn</label></td>
+                <td><input type="text" class="form-control" id="editYarn" name="editYarn" value="<%= post.yarn %>"></td>
+              </tr>          
+              <tr>
+                <td><label for="editCategory" class="form-label">Category</label></td>
+                <td><input type="text" class="form-control" id="editCategory" name="editCategory" value="<%= post.category %>"></td>
+              </tr>
+              <tr>
+                <td><label for="editSize" class="form-label">Size</label></td>
+                <td><input type="text" class="form-control" id="editSize" name="editSize" value="<%= post.size %>"></td>            
+              </tr>
+              <tr>
+                <td><label for="editOrigin" class="form-label">Origin</label></td>
+                <td><input type="text" class="form-control" id="editOrigin" name="editOrigin" value="<%= post.origin %>"></td>           
+              </tr>
+              <tr>
+                <td>Created At</td>
+                <td><%= post.createdAt %></td>
+              </tr>              
+            </table>
+            <div class="col-6 mt-5">
+              <button class="btn btn-primary" type="submit">Save Changes</button>
+              <a class="btn btn-primary" href="/post/<%= post._id %>">Return to Post</a>
+            </div>
+          </form>
+        </div>      
+      </div>      
     </div>
-
-    <div class="col-6">
-      <!-- Post Details -->
-      <div class="mb-3">
-        <h3>Details</h3>
-        <span>by <%= postAuthor %></span>
-
-        <table>
-          <tr>
-            <td>craft</td>
-            <td><%= post.craft %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editCraft/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <input type="text" class="form-control" id="Craft" name="craft" value="<%= post.craft %>">
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>          
-          <tr>
-            <td>Yarn Weight</td>
-            <td><%= post.yarnWeight %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editYarnWeight/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>
-          <tr>
-            <td>Needle Size</td>
-            <td><%= post.needleSize %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editNeedleSize/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>
-          <tr>
-            <td>Gauge</td>
-            <td><%= post.gauge %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editGauge/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>
-          <tr>
-            <td>Yardage</td>
-            <td><%= post.yardage %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editYardage/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>
-          <tr>
-            <td>Yarn</td>
-            <td><%= post.yarn %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editYarn/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>          
-          <tr>
-            <td>Category</td>
-            <td><%= post.category %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editCategory/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td>-->
-          </tr>
-          <tr>
-            <td>Size</td>
-            <td><%= post.size %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editSize/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td> -->
-          </tr>
-          <tr>
-            <td>Origin</td>
-            <td><%= post.origin %></td>
-            <!-- <td>
-              <%if(post.user == user.id){ %>
-              <form
-                action="/post/editOrigin/<%= post.id %>?_method=UPDATE"
-                method="POST"
-                class="col-1"
-              >
-                <button class="btn btn-primary fa fa-edit" type="submit"></button>
-              </form>
-              <%}%>
-            </td> -->
-          </tr>
-          <tr>
-            <td>Created At</td>
-            <td><%= post.createdAt %></td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Pattern -->
-      <div class="mb-3">
-        <h3>Pattern Instructions</h3>
-        <ul>
-           <!-- pattern sections-->
-        </ul>
-      </div>
-
-         <!-- Counters -->
-      <%if(post.user == user.id){ %> <!-- later if project == active, not bound to post.user -->
-        <div class="mb-3">
-          <h4>Counters</h4>
-
-        </div>
-      <%}%>
-      
-    </div>
-        
-  </div>
 </div>
 
 <%- include('partials/footer') -%>

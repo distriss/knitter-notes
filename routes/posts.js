@@ -9,18 +9,7 @@ router.get("/:id", ensureAuth, postsController.getPost);
 router.post("/createPost", upload.single("file"), postsController.createPost);
 
 router.get("/editPost/:id", ensureAuth, postsController.getEditPost);
-
-router.put("/editPost/editTitleAndDesc/:id", postsController.editTitleAndDesc);
-// edit details route
-// router.put("/editPostCraft/", postsController.editPostCraft);
-/* router.put("/editPostYarnWeight/", postsController.editPostYarnWeight);
-router.put("/editPostNeedleSize/", postsController.editPostNeedleSize);
-router.put("/editPostGauge/", postsController.editPostGauge);
-router.put("/editPostYardage/", postsController.editPostYardage);
-router.put("/editPostYarn/", postsController.editPostYarn);
-router.put("/editPostCategory/", postsController.editPostCategory);
-router.put("/editPostSize/", postsController.editPostSize);
-router.put("/editPostOrigin/", postsController.editPostOrigin); */
+router.put("/editPost/editPostDetails/:id", postsController.editPostDetails);
 
 router.put("/likePost/:id", postsController.likePost);
 
