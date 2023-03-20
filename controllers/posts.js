@@ -107,6 +107,32 @@ module.exports = {
           console.log(err);
         }
       },
+      // Update Image
+      updateImageUpload: async (req, res) => {
+        try {          
+          // Find post by id
+          let post = await Post.findById({ _id: req.params.id });
+          // Delete old image from cloudinary
+          await cloudinary.uploader.destroy(post.cloudinaryId);          
+          // Upload new image to cloudinary
+          const result = await cloudinary.uploader.upload(req.file.path);
+
+          await Post.findOneAndUpdate(
+            {_id: req.params.id },
+            {
+              $set: {
+                image: result.secure_url,
+              } 
+            },
+            {new: true}
+            );
+          console.log("Image has been updated!");
+          res.redirect(`/post/editPost/${req.params.id}`)
+        }
+        catch (err) {
+          console.log(err);
+        }
+      },
       likePost: async (req, res) => {
         try {
           await Post.findOneAndUpdate(
