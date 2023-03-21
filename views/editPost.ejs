@@ -33,11 +33,12 @@
         </div>
     
         <div class="col-6">
+          <!-- Delete Post -->
           <div class="row justify-content-end">          
             <%if(post.user == user.id){ %>
               <form
                 class="col-1"
-                action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                action="/post/editPost/deletePost/<%= post._id %>?_method=DELETE"
                 method="POST"
               >
                 <button class="btn btn-primary fa fa-trash" type="submit"></button>
@@ -112,10 +113,11 @@
           <div class="col-6 mt-5">
             <form
                   action="/post/editPost/updateImageUpload/<%= post._id %>?_method=PUT"
+                  enctype="multipart/form-data"
                   method="POST"
                 >
-              <label for="updateImageUpload" class="form-label">Update Image</label>
-              <input type="file" class="form-control" id="updateImageUpload" name="file">
+                <label for="updateImageUpload" class="form-label">Update Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
 
               <button class="btn btn-primary fa fa-save" type="submit"></button>
             </form>
