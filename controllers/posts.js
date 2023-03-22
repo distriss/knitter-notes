@@ -110,15 +110,15 @@ module.exports = {
       // Update Image
       updateImageUpload: async (req, res) => {
         try {     
-          // Upload new image to cloudinary          
-          const result = await cloudinary.uploader.upload(req.file.path);
+          // Upload new image to cloudinary 
+          const post = await Post.findById(req.params.id).lean();       
+          const result = await cloudinary.uploader.upload(req.file.path, options = { public_id: post.cloudinaryId });
 
           await Post.findOneAndUpdate(
             {_id: req.params.id },
             {
               $set: {
                 image: result.secure_url,
-                cloudinaryId: result.public_id,
               } 
             },
             {new: true}
