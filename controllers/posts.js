@@ -110,7 +110,7 @@ module.exports = {
       // Update Image
       updateImageUpload: async (req, res) => {
         try {     
-          // Upload new image to cloudinary 
+          // Upload new & replace old image in cloudinary 
           const post = await Post.findById(req.params.id).lean();       
           const result = await cloudinary.uploader.upload(req.file.path, options = { public_id: post.cloudinaryId });
 

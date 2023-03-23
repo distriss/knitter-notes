@@ -36,7 +36,6 @@ const PostSchema = new mongoose.Schema({
     },
     yarn: {
         type: String,
-        required: true,
     },
     yarnWeight: {
         type: String,
@@ -46,7 +45,6 @@ const PostSchema = new mongoose.Schema({
     },
     needleSize: {
         type: String,
-        required: true,
     },
     yardage: {
         type: String,
