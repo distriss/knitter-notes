@@ -15,7 +15,7 @@ const CommentSchema = new mongoose.Schema({
     },
     user: { // user id that created comment
         type: mongoose.Schema.Types.ObjectId, 
-        ref: "User"
+        ref: "User",
     },
     createdAt: {
         type: Date,

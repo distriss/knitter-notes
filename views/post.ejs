@@ -32,8 +32,8 @@
         <ul>
           <% for(let i=0; i<comments.length; i++) {%>
             <li class="col-6 justify-content-between mt-5">
+              <!-- fix this - use different method -->
               <% for(let n=0; n<users.length; n++) { %>
-                <% console.log(`${users[n]._id} - ${comments[i].user}`) %>
                 <% if(String(users[n]._id) === String(comments[i].user)) { %>
                   <p><%= users[n].userName %></p>
                 <% } %>
