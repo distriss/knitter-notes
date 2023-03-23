@@ -11,7 +11,8 @@ module.exports = {
                 comment: req.body.comment,
                 likes: 0,
                 post: req.params.id,
-                user: req.user.id,               
+                user: req.user.id,
+                userName: req.user.userName,              
             });
             console.log("Comment has been added!");
             res.redirect(`/post/${req.params.id}`);
