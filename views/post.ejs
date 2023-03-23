@@ -33,34 +33,35 @@
           <ul class="list-unstyled">
             <% for(let i=0; i<comments.length; i++) {%>
               <li class="d-flex justify-content-between">
-                <!-- fix this - use different method to get all comments-->
-                <div class="d-flex justify-content-between ">                
+                
+                <div class="d-flex ">                
                   <span class="p-2"><%= comments[i].userName %></span>
                   <p class="p-2"><%= comments[i].comment %></p>
                 </div>
-        
-                  <!-- like comment-->
-                  <div class="d-flex justify-content-between">
-                      <span class="p-2"><%= comments[i].likes %></span>                                           
-                      <form
-                        class="col-sm"
-                        action="/comment/likeComment/<%= comments[i]._id %>?_method=PUT"
-                        method="POST"
-                        >
-                        <button class="btn btn-danger fa fa-heart" type="submit"></button>                        
-                      </form>
-                  </div>
-                  
-                  <!-- delete comment -->
-                  <%if(comments[i].user == user.id){ %>
-                    <form
-                      class="col-sm"
-                      action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
-                      method="POST"
+                
+                <div class="d-flex">
+
+                  <!-- like comment-->                 
+                  <span class="p-2"><%= comments[i].likes %></span>                                           
+                  <form
+                    class="col-sm"
+                    action="/comment/likeComment/<%= comments[i]._id %>?_method=PUT"
+                    method="POST"
                     >
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                    </form>
-                  <% } %>
+                    <button class="btn btn-danger fa fa-heart" type="submit"></button>                        
+                  </form>
+
+                 <!-- delete comment -->
+                  <%if(comments[i].user == user.id){ %>
+                  <form
+                    class="col-sm"
+                    action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+                    method="POST"
+                  >
+                  <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  </form>
+                <% } %>
+                </div>
               </li>
             <% } %>
           </ul>
