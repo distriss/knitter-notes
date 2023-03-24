@@ -17,6 +17,7 @@ const PatternSchema = new mongoose.Schema({
     },
     patternOrder: {
         type: number,
+        required: true,
     },
     cloudinaryId: {
         type: String,
