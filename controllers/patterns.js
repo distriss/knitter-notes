@@ -15,7 +15,8 @@ module.exports = {
               cloudinaryId: result.public_id,
               post: req.params.id,
               user: req.user.id,
-              userName: req.user.UserName,
+              userName: req.user.userName,
+              completed: false,
           });
           console.log("Pattern has been added!");
           res.redirect(`/post/${req.params.id}`);
