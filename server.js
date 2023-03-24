@@ -11,7 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
-// const patternRoutes = require("./routes/patterns");
+const patternRoutes = require("./routes/patterns");
 // const counterRoutes = require("./routes/counters");
 
 
@@ -64,7 +64,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
-// app.use("/pattern", patternRoutes);
+app.use("/pattern", patternRoutes);
 // app.use("/counter", counterRoutes);
 
 // Server Running

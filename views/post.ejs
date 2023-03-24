@@ -133,6 +133,18 @@
       <!-- Pattern -->
       <div class="mb-3">
         <h3>Pattern Instructions</h3>
+        <%if(post.user == user.id){ %>
+          <div class="mt-5">
+            <h3>Add a Pattern Section</h3>
+            <form action="/pattern/createPattern/<%=post._id%>" method="POST">
+              <div class="mb-3">
+                  <label for="Pattern" class="form-label">Pattern</label>
+                  <input type="text" class="form-control" id="pattern" name="pattern">
+              </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        <%}%>
         <ul>
            <!-- pattern sections-->
         </ul>

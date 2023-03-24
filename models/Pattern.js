@@ -13,10 +13,10 @@ const PatternSchema = new mongoose.Schema({
         type: String,
     },
     patternFinalCount: {
-        type: number,
+        type: Number,
     },
     patternOrder: {
-        type: number,
+        type: Number,
         required: true,
     },
     cloudinaryId: {
