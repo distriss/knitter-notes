@@ -5,12 +5,18 @@ const PatternSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    patternSection: {
+    patternDirections: {
         type: String,
         required: true,        
     },
-    image: {
+    patternImage: {
         type: String,
+    },
+    patternFinalCount: {
+        type: number,
+    },
+    patternOrder: {
+        type: number,
     },
     cloudinaryId: {
         type: String,
@@ -23,11 +29,18 @@ const PatternSchema = new mongoose.Schema({
     user: { // user id that created pattern
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User"
-    },   
+    },
+    userName: { // userName that created pattern
+        type: String,
+        required: true,
+    },    
+    completed: {
+        type: Boolean,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
-    }
+    },
 })
 
 module.exports = mongoose.model("Pattern", PatternSchema);
