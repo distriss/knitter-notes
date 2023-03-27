@@ -137,10 +137,21 @@
           <div class="mt-5">
             <h3>Add a Pattern Section</h3>
             <form action="/pattern/createPattern/<%=post._id%>" method="POST">
+
               <div class="mb-3">
-                  <label for="Pattern" class="form-label">Pattern</label>
-                  <input type="text" class="form-control" id="pattern" name="pattern">
+                  <label for="patternTitle" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="patternTitle" name="pattern">
               </div>
+              <div class="mb-3">
+                <label for="patternDirections" class="form-label">Directions</label>
+                <textarea class="form-control" id="patternDirections" name="pattern"></textarea>
+            </div>
+
+              <div class="mb-3">
+                <label for="patternImageUpload" class="form-label">Chart Image</label>
+                <input type="file" class="form-control" id="patternImageUpload" name="file">
+              </div>
+              
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>
