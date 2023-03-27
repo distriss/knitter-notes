@@ -1,4 +1,5 @@
 const Pattern = require("../models/Pattern");
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
 
