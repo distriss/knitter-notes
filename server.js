@@ -56,7 +56,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Use flash messages for errors, info etc
+// Use flash messages for errors etc
 app.use(flash());
 
 
@@ -66,6 +66,7 @@ app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 app.use("/pattern", patternRoutes);
 // app.use("/counter", counterRoutes);
+// app.use("/direction", directionRoutes);
 
 // Server Running
 app.listen(process.env.PORT, () => {
