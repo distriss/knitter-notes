@@ -5,7 +5,7 @@ You can create an account and profile, create patterns, keep note on materials u
 
 **Link to project:** http:/
 
-![Knitter Notes Gif](http:/)
+![Knitter Notes Gif](https://trissmarsh-dev.netlify.app/images/knitter-notes.gif)
 
 ## How It's Made:
 
